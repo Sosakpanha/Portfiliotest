@@ -1,7 +1,15 @@
 <script setup lang="ts">
+import { onMounted, getCurrentInstance } from 'vue'
+
 defineProps<{
   msg: string
 }>()
+
+const { $gsap } = getCurrentInstance()!.appContext.config.globalProperties
+
+onMounted(() => {
+  $gsap.from('.greetings h1', { opacity: 0, y: -20 })
+})
 </script>
 
 <template>

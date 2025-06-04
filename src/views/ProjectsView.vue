@@ -1,16 +1,11 @@
 <template>
-  <div class="projects">
-    <h1>Projects</h1>
-    <p>This page will list all projects.</p>
+  <div class="projects-view">
+    <h1>Projects View</h1>
   </div>
 </template>
 
-<script setup lang="ts">
-// Future project logic can go here
-</script>
-
 <style scoped>
-.projects {
+.projects-view {
   padding: 1rem;
 }
 </style>

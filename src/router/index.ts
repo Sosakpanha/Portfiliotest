@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
-// Lazy-load other views
-const ProjectsView = () => import('../views/ProjectsView.vue')
-const ContactView = () => import('../views/ContactView.vue')
+import ProjectsView from '../views/ProjectsView.vue'
+import ContactView from '../views/ContactView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <div class="skill-item">
-    <img :src="icon" :alt="name + ' icon'" class="skill-icon" />
+    <img :src="icon" :alt="name + ' icon'" class="skill-icon" loading="lazy" />
     <span class="skill-name">{{ name }}</span>
   </div>
 </template>

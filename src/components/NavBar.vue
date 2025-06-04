@@ -1,6 +1,11 @@
 <template>
   <nav class="navbar">
-    <button class="menu-toggle" aria-label="Toggle navigation" @click="toggleMenu">
+    <button
+      class="menu-toggle"
+      aria-label="Toggle navigation"
+      :aria-expanded="isOpen.toString()"
+      @click="toggleMenu"
+    >
       Menu
     </button>
     <ul :class="{ open: isOpen }">
@@ -50,6 +55,14 @@ const toggleMenu = () => {
 .navbar a {
   color: white;
   text-decoration: none;
+  outline: none;
+  transition: outline-offset 0.2s;
+}
+
+.navbar a:focus,
+.menu-toggle:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .navbar a.router-link-active {

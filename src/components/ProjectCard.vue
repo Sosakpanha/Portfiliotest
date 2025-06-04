@@ -9,10 +9,10 @@ defineProps<{
 
 <template>
   <div class="project-card">
-    <img :src="image" :alt="title" class="project-image" />
+    <img :src="image" :alt="title" class="project-image" loading="lazy" />
     <h3 class="project-title">{{ title }}</h3>
     <p class="project-description">{{ description }}</p>
-    <a :href="link" target="_blank" rel="noopener" class="project-link">
+    <a :href="link" target="_blank" rel="noopener" class="project-link" :aria-label="'View ' + title">
       View Project
     </a>
   </div>
@@ -24,12 +24,24 @@ defineProps<{
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--color-background-soft);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
   width: 100%;
   height: auto;
   border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
 }
 
 .project-title {
@@ -45,5 +57,11 @@ defineProps<{
   color: #42b983;
   text-decoration: none;
   font-weight: bold;
+  outline: none;
+}
+
+.project-link:focus {
+  outline: 2px solid #42b983;
+  outline-offset: 2px;
 }
 </style>

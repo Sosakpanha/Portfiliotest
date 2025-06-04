@@ -37,3 +37,21 @@ npm run build
 ```sh
 npm test
 ```
+
+## Animations
+
+This project uses [GSAP](https://greensock.com/gsap/) for animations. The library is installed as a Vue plugin in `src/plugins/gsap.ts` and registered in `src/main.ts`. You can access the instance in components via `this.$gsap`.
+
+Example:
+
+```vue
+<script setup lang="ts">
+import { onMounted, getCurrentInstance } from 'vue'
+
+const { $gsap } = getCurrentInstance()!.appContext.config.globalProperties
+
+onMounted(() => {
+  $gsap.from('.container', { opacity: 0, y: 20 })
+})
+</script>
+```

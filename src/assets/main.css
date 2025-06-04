@@ -33,3 +33,16 @@ a,
     padding: 0 2rem;
   }
 }
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  #app {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #app {
+    padding: 0.5rem;
+  }
+}

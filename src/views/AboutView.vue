@@ -1,7 +1,7 @@
 <template>
   <section class="about container">
     <div class="profile">
-      <img src="@/assets/logo.svg" alt="Profile image" class="profile-image" />
+      <img src="@/assets/logo.svg" alt="Profile image" class="profile-image" loading="lazy" />
       <p class="bio">
         I'm a frontend developer who loves crafting delightful user experiences. I enjoy working
         with modern technologies to build fast and accessible applications.

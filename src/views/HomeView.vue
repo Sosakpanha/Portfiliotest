@@ -8,6 +8,17 @@
   </section>
 </template>
 
+<script setup lang="ts">
+import { onMounted, getCurrentInstance } from 'vue'
+
+const { $gsap } = getCurrentInstance()!.appContext.config.globalProperties
+
+onMounted(() => {
+  $gsap.from('.hero-heading', { opacity: 0, y: -30, duration: 0.6 })
+  $gsap.from('.hero-subheading', { opacity: 0, y: -30, duration: 0.6, delay: 0.3 })
+})
+</script>
+
 <style scoped>
 .hero {
   display: flex;

@@ -1,16 +1,11 @@
 <template>
-  <div class="contact">
-    <h1>Contact</h1>
-    <p>You can reach me at <a href="mailto:example@example.com">example@example.com</a>.</p>
+  <div class="contact-view">
+    <h1>Contact View</h1>
   </div>
 </template>
 
-<script setup lang="ts">
-// Contact page logic can go here
-</script>
-
 <style scoped>
-.contact {
+.contact-view {
   padding: 1rem;
 }
 </style>

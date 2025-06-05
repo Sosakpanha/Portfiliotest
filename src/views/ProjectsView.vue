@@ -48,6 +48,7 @@ const projects: Project[] = [
 <style scoped>
 .projects-view {
   padding: 2rem 0;
+  min-height: 100%;
 }
 
 .heading {

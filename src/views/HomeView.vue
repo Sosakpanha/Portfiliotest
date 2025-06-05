@@ -42,7 +42,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100%;
   position: relative;
   overflow: hidden;
   text-align: center;

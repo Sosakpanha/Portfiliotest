@@ -70,6 +70,7 @@ onMounted(() => {
   padding: 2rem 0;
   display: grid;
   gap: var(--spacing-lg);
+  min-height: 100%;
 }
 
 .profile {

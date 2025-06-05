@@ -30,6 +30,9 @@ const toggleMenu = () => {
 .navbar {
   background: #2c3e50;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 

@@ -52,6 +52,7 @@ function submit() {
 <style scoped>
 .contact-view {
   padding: 2rem 0;
+  min-height: 100%;
 }
 
 .heading {

@@ -21,10 +21,24 @@ a,
   }
 }
 
+/* Khmer font for elements with lang="km" or .khmer-text */
+[lang="km"], [lang="km"] * {
+  font-family: 'Noto Sans Khmer', sans-serif !important;
+}
+
+.khmer-text {
+  font-family: 'Noto Sans Khmer', sans-serif !important;
+}
+
 @media (min-width: 1024px) {
   body {
+    font-family: 'Poppins', sans-serif;
     display: flex;
     place-items: center;
+  }
+
+  .khmer-text {
+    font-family: 'Noto Sans Khmer', sans-serif;
   }
 
   #app {

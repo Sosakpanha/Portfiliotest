@@ -1,20 +1,103 @@
+<script setup lang="ts">
+import NavBar from './components/NavBar.vue'
+import type { DirectiveBinding } from 'vue'
+import { watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+watch(locale, (lang) => {
+  document.documentElement.lang = lang
+}, { immediate: true })
+
+function scrollToSection(section: string) {
+  const el = document.getElementById(section)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
+
+const vScrollReveal = {
+  mounted(el: HTMLElement, binding: DirectiveBinding) {
+    const direction = binding.value || 'left'
+    el.classList.add(direction === 'right' ? 'reveal-right' : 'reveal-left')
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active')
+          obs.unobserve(entry.target)
+        }
+      })
+    })
+    observer.observe(el)
+  },
+}
+</script>
+
 <template>
-  <div id="app">
-    <NavBar />
-    <router-view />
+  <div class="main-content pt-16">
+    <NavBar @scroll-to-section="scrollToSection" />
+
+    <section id="about" v-scroll-reveal="'left'">
+      <AboutMe />
+    </section>
+    <q-separator />
+
+    <section id="education-experience" v-scroll-reveal="'right'">
+      <div class="row q-col-gutter-md">
+        <div class="col-12 col-md-6">
+          <div id="education" v-scroll-reveal="'left'">
+            <Education />
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div id="experience" v-scroll-reveal="'right'">
+            <Experience />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <q-separator />
+
+    <section id="skills" v-scroll-reveal="'left'">
+      <Skills />
+    </section>
+    <q-separator />
+
+    <section id="projects" v-scroll-reveal="'right'">
+      <Projects />
+    </section>
+    <q-separator />
+
+    <section id="contact" v-scroll-reveal="'left'">
+      <Contact />
+    </section>
   </div>
 </template>
 
-<script setup lang="ts">
-import NavBar from './components/NavBar.vue'
-</script>
+<style scoped>
+.main-content {
+  padding: 1em;
+}
+section {
+  margin: 3em 0;
+  scroll-margin-top: 60px;
+}
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition:
+    transform 0.8s ease-out,
+    opacity 0.8s ease-out;
+}
+.reveal-left {
+  transform: translateX(-100px);
+}
+.reveal-right {
+  transform: translateX(100px);
+}
+
+.reveal-active {
+  transform: translateX(0);
+  opacity: 1;
 }
 </style>

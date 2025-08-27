@@ -28,3 +28,13 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+Thumbs.db
+ehthumbs.db
+package-lock.json

@@ -7,8 +7,7 @@
   font-weight: normal;
 }
 
-a,
-.green {
+a {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
@@ -45,5 +44,18 @@ a,
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
+  }
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1024px) {
+  #app {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #app {
+    padding: 0.5rem;
   }
 }

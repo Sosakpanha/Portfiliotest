@@ -38,6 +38,8 @@ npm run build
 npm test
 ```
 
+Vitest and Vue Test Utils power the component unit tests, covering elements like the NavBar and ProjectCard.
+
 ## Animations
 
 This project uses [GSAP](https://greensock.com/gsap/) for animations. The library is installed as a Vue plugin in `src/plugins/gsap.ts` and registered in `src/main.ts`. You can access the instance in components via `this.$gsap`.
